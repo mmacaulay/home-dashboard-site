@@ -73,6 +73,18 @@
       font-size: 0.95rem;
     }
 
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a[aria-current="page"] {
+      color: var(--text);
+      border-bottom-color: var(--accent);
+    }
+
     main {
       display: grid;
       gap: 34px;
@@ -184,6 +196,7 @@
         <span>Perch Home</span>
       </a>
       <nav aria-label="Site navigation">
+        <a href="/" aria-current="page">Home</a>
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
         <a href="mailto:support@perchhome.app">Contact</a>
