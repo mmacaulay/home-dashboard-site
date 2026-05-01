@@ -3,52 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perch Home - Privacy Policy</title>
+  <title>Perch Home - Home dashboard for iPad</title>
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 720px;
-      margin: 48px auto;
-      padding: 0 24px;
-      color: #1a1a2e;
-      line-height: 1.7;
+    :root {
+      color-scheme: light;
+      --background: #f8faf8;
+      --surface: #ffffff;
+      --text: #17211d;
+      --muted: #5c6962;
+      --border: #d9e2dd;
+      --accent: #28705b;
+      --accent-dark: #1f5747;
     }
-    h1 { font-size: 1.8rem; margin-bottom: 4px; }
-    h2 { font-size: 1.1rem; margin-top: 32px; }
-    .meta { color: #666; font-size: 0.9rem; margin-bottom: 32px; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 6px; }
-    a { color: #0070f3; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 28px 24px 56px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 4px 0 64px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.95rem;
+    }
+
+    main {
+      display: grid;
+      gap: 56px;
+    }
+
+    .hero {
+      max-width: 740px;
+      padding-bottom: 8px;
+    }
+
+    .hero-logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 18px;
+      margin-bottom: 28px;
+      box-shadow: 0 16px 40px rgba(23, 33, 29, 0.14);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 10vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      font-size: clamp(1.25rem, 3vw, 1.7rem);
+      color: var(--accent-dark);
+      font-weight: 650;
+    }
+
+    .intro {
+      margin: 18px 0 0;
+      max-width: 660px;
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    .section {
+      display: grid;
+      gap: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      min-height: 76px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--muted);
+    }
+
+    .feature-list strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .plain-text {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 22px 18px 44px;
+      }
+
+      header {
+        align-items: flex-start;
+        padding-bottom: 44px;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      .hero-logo {
+        width: 76px;
+        height: 76px;
+        border-radius: 14px;
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Perch Home</h1>
-  <p class="meta">Privacy Policy - Last updated April 29, 2026</p>
+  <div class="page">
+    <header>
+      <a class="brand" href="/" aria-label="Perch Home home">
+        <img src="assets/logo-concepts/perch-mark-a.png" alt="" />
+        <span>Perch Home</span>
+      </a>
+      <nav aria-label="Site navigation">
+        <a href="/privacy/">Privacy</a>
+        <a href="mailto:support@perchhome.app">Contact</a>
+      </nav>
+    </header>
 
-  <p>Perch Home is a personal iPad kiosk app. This policy describes what data the app accesses and how it is used.</p>
+    <main>
+      <section class="hero">
+        <img class="hero-logo" src="assets/logo-concepts/perch-mark-a.png" alt="" />
+        <h1>Perch Home</h1>
+        <p class="subtitle">Home dashboard for iPad</p>
+        <p class="intro">Perch Home turns an iPad into an always-on household display for weather, calendars, photos, Apple Home devices, cameras, and guest Wi-Fi.</p>
+      </section>
 
-  <h2>Data accessed on your device</h2>
-  <p>Perch Home accesses the following on your device, solely to display information on screen:</p>
-  <ul>
-    <li><strong>Apple Calendar</strong> - to show today's events</li>
-    <li><strong>Photos</strong> - to display a slideshow from your photo library</li>
-    <li><strong>Reminders</strong> - to display your shopping list</li>
-    <li><strong>HomeKit</strong> - to show smart home device status and camera feeds</li>
-    <li><strong>Local network</strong> - to connect to HomeKit devices on your network</li>
-  </ul>
-  <p>None of this data is transmitted off your device by the app.</p>
+      <section class="section" aria-labelledby="features-heading">
+        <h2 id="features-heading">What it does</h2>
+        <ul class="feature-list">
+          <li><strong>Weather and time</strong>Current conditions, forecast details, and a readable household clock.</li>
+          <li><strong>Calendar events</strong>Apple Calendar and Google Calendar events shown at a glance.</li>
+          <li><strong>Photo slideshows</strong>Personal photo library slideshows that stay on the device.</li>
+          <li><strong>Apple Home</strong>HomeKit device status and Apple Home camera views for supported homes.</li>
+          <li><strong>Guest Wi-Fi</strong>Visitor-friendly network details displayed where your household needs them.</li>
+          <li><strong>Simple setup</strong>Template-based onboarding for a focused always-on display.</li>
+        </ul>
+      </section>
 
-  <h2>Third-party services</h2>
-  <ul>
-    <li><strong>Google Calendar</strong> - if you choose to connect a Google account, the app uses the Google Calendar API (read-only scope) to fetch your calendar events for display on screen. This requires signing in with Google and authorises read-only access to your calendar events. Calendar data is fetched directly from Google's servers and is not stored or transmitted anywhere else. Perch Home's use of Google Calendar data complies with the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. This is governed by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
-    <li><strong>Apple WeatherKit</strong> - your configured location (latitude and longitude) is sent to Apple's WeatherKit API to fetch weather data. This is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</li>
-    <li><strong>TelemetryDeck</strong> - the app sends anonymous, aggregate usage events (such as app launch, onboarding steps completed, and which features are active) to TelemetryDeck for product analytics. No personally identifiable information is collected. Device identifiers are hashed before transmission and cannot be reversed. This is governed by <a href="https://telemetrydeck.com/privacy/">TelemetryDeck's Privacy Policy</a>.</li>
-  </ul>
+      <section class="section" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">Privacy</h2>
+        <p class="plain-text">Perch Home is designed for personal household use. Most data stays on your device. Calendar, weather, analytics, and crash-reporting services are used only where needed to provide app features and improve reliability.</p>
+        <p class="plain-text"><a href="/privacy/">Read the privacy policy</a></p>
+      </section>
+    </main>
 
-  <h2>Data storage</h2>
-  <p>App settings (weather location, WiFi credentials, dashboard title) are stored locally on your device using iOS secure storage. No data is synced to the cloud or shared with any third party.</p>
-
-  <h2>Contact</h2>
-  <p>Questions? Email <a href="mailto:support@perchhome.app">support@perchhome.app</a>.</p>
+    <footer class="footer-links">
+      <span>Questions or support: <a href="mailto:support@perchhome.app">support@perchhome.app</a></span>
+      <a href="/privacy/">Privacy Policy</a>
+    </footer>
+  </div>
 </body>
 </html>
